@@ -3,6 +3,7 @@ package com.nttdata.som.demo.ifaces;
 import com.uber.cadence.activity.ActivityMethod;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public interface ActivityManageFile {
 
@@ -11,5 +12,5 @@ public interface ActivityManageFile {
 
 
     @ActivityMethod
-    public File saveFile(String content);
+    public File saveFile(String content) throws FileNotFoundException;
 }

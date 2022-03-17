@@ -17,7 +17,7 @@ public class CadenceUtil {
                         .setExecutionStartToCloseTimeout(Duration.ofDays(1000))
                         .setTaskList("loadFlow")
                         .build());
-        String url = "C:\\Users\\drobayov\\OneDrive - NTT DATA EMEAL\\Documentos\\Squad de Integración\\India KT\\Demo\\JSON";
+        String url = "http://demo0079125.mockable.io/serviceorder/1234";
         /*
         Map<String, String> cadenceMap = new HashMap<>();
         cadenceMap.put("id", "169");

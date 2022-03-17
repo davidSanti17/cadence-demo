@@ -5,6 +5,7 @@ import com.nttdata.som.demo.ifaces.WorkflowDemo;
 import com.uber.cadence.activity.ActivityOptions;
 import com.uber.cadence.workflow.Workflow;
 
+import java.io.FileNotFoundException;
 import java.time.Duration;
 
 public class WorkflowDemoImpl implements WorkflowDemo {
@@ -18,7 +19,11 @@ public class WorkflowDemoImpl implements WorkflowDemo {
 
         ActivityManageFile activities = Workflow.newActivityStub(ActivityManageFile.class, options);
         String content = activities.readJson(url);
-        activities.saveFile(content);
+        try {
+            activities.saveFile(content);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
