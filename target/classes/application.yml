@@ -1,0 +1,47 @@
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+    loggers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: httptrace,loggers,health,metrics
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+server:
+  port: 8082
+spring:
+  application:
+    name: Archetype
+swagger:
+  info:
+    controller:
+      description: Endpoints for CRUD operations on TEST
+    description: Archetype for TEST
+    package: com.nttdata.som.demo
+    title: Cadence Demo
+    version: 1.0
+  server:
+    listOfServer: '{''http://localhost:8082/ --- Development Environment'',''http://pre-production-api.example.com
+            --- PreProduction Environment'',''http://production-api.example.com ---
+            Production Environment''}'
+  tags:
+    controller: TestController
+
+com:
+  nttdata:
+    bpmn:
+      url: ${CAMUNDA_URL:http://localhost:8080/engine-rest/process-definition/key/}
+    cadence:
+      activity:
+        timeout: ${CADENCE_ACT_TIMEOUT:100}
+      domain: ${CADENCE_DOMAIN:simple-domain}
+      host: ${CADENCE_HOST:localhost}
+      port: ${CADENCE_PORT:7933}
+      tasklist: ${CADENCE_TASKLIST:loadFlow}
